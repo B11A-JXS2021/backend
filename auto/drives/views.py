@@ -10,11 +10,11 @@ from .serializers import DriveSerializer
 
 def weekRange(year, week):
     start_of_year = date(year, 1, 1)
-    now = start_of_year + timedelta(weeks=week-1)
+    now = start_of_year + timedelta(weeks=week+1)
     sun = now - timedelta(days=now.isoweekday() % 7)
     week_li = []
-    week_li.append(sun.strftime("%Y%m%d"))
-    week_li.append((sun + timedelta(days=6)).strftime("%Y%m%d"))
+    week_li.append(sun)
+    week_li.append(sun + timedelta(days=6))
     return week_li
 
 class DriveData(APIView):
@@ -43,5 +43,6 @@ class DriveData(APIView):
         week_range = weekRange(year, week)
         week_start = week_range[0]
         week_end = week_range[1]
-        filtered_drive = drive_obj.filter(date__range=[week_start, week_end])
-        return Response(filtered_drive, status=status.HTTP_200_OK)
+        filtered_drive = drive_obj.filter(timestamp__range=[week_start, week_end])
+        serializer = DriveSerializer(filtered_drive, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
