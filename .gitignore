@@ -7,3 +7,5 @@ db.sqlite3
 auto/sms/migrations/
 
 auto/users/migrations/
+
+auto/staticfiles/
