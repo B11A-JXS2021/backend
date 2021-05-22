@@ -9,7 +9,7 @@ from rest_framework.authtoken.models import Token
 class User(AbstractUser):
     first_name = None
     last_name = None
-    username = models.CharField('이름', unique=True,max_length=50, null = True)
+    username = models.CharField('이름', unique=True,max_length=50, null=True)
     email = models.EmailField('이메일', unique=True)
     password = models.CharField('비밀번호', max_length=128)
     blood = models.CharField('혈액형', max_length=50, blank=True)
@@ -17,11 +17,9 @@ class User(AbstractUser):
     disease = models.CharField('질병', max_length=128, blank=True)
     medicine = models.CharField('복용약', max_length=128, blank=True)
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELD = []
-
     objects = CustomUserManager()
-    isactive = models.BooleanField('인증유무',default=False)
+    
+    isactive = models.BooleanField('인증유무',default=True)
     realname = models.CharField('이름', blank=True, max_length=50)
     phone = models.CharField('휴대폰번호', blank=True, max_length=100)
     address = models.CharField('주소', blank=True, max_length=200)
