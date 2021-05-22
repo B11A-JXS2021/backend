@@ -21,7 +21,7 @@ class UserInfo(APIView):
             user_obj.emergency = request.data.get('emergency')
             user_obj.disease = request.data.get('disease')
             user_obj.medicine = request.data.get('medicine')
-            print(user_obj)
+            user_obj.special_note = request.data.get('special_note')
             user_obj.save()
             return Response("User was Updated", status=status.HTTP_200_OK)
         except:

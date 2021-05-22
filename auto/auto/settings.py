@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'sms',
     'users',
-
+    'drives',
 ]
 
 SITE_ID = 1
@@ -125,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 

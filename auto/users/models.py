@@ -16,6 +16,7 @@ class User(AbstractUser):
     emergency = models.CharField('긴급전화번호', max_length=128, blank=True)
     disease = models.CharField('질병', max_length=128, blank=True)
     medicine = models.CharField('복용약', max_length=128, blank=True)
+    special_note = models.CharField('특이사항', max_length=100, blank=True)
 
     objects = CustomUserManager()
     

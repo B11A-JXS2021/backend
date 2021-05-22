@@ -8,4 +8,6 @@ auto/sms/migrations/
 
 auto/users/migrations/
 
+auto/drives/migrations/
+
 auto/staticfiles/
