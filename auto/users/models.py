@@ -12,9 +12,12 @@ class User(AbstractUser):
     username = models.CharField('이름', unique=True,max_length=50, null = True)
     email = models.EmailField('이메일', unique=True)
     password = models.CharField('비밀번호', max_length=128)
+    blood = models.CharField('혈액형', max_length=50, blank=True)
+    emergency = models.CharField('긴급전화번호', max_length=128, blank=True)
+    disease = models.CharField('질병', max_length=128, blank=True)
+    medicine = models.CharField('복용약', max_length=128, blank=True)
 
     USERNAME_FIELD = 'username'
-
     REQUIRED_FIELD = []
 
     objects = CustomUserManager()
