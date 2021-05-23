@@ -35,7 +35,7 @@ class DriveData(APIView):
 
     def get(self, request):
         user = request.user
-        week_num = int(request.data.get("week_num"))
+        week_num = int(request.GET.get("week_num"))
         drive_obj = Drive.objects.filter(user=user)
         dt = datetime.now()
         year = dt.year
